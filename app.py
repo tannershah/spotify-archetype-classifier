@@ -1,8 +1,5 @@
 """
 Vibe Check Dashboard
-Plotly Dash multi-page app for the CIS 2450 final project.
-
-Run with: python app.py   (opens http://127.0.0.1:8050)
 """
 
 from dash import Dash, html, dcc, page_container, page_registry, Input, Output, callback
