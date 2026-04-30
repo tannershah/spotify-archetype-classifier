@@ -1,13 +1,5 @@
 """
-Vibe Check — shared constants and data loaders.
-
-Everything here is grounded in the project's actual notebook
-(CIS2450_Final_Project.ipynb) — the 6 archetypes, 14 audio features,
-18 lyric features, 5 categorical features, and per-archetype lyric
-statistics are all extracted directly from notebook outputs.
-
-If `data/tracks.csv` is absent, the dashboard runs in DEMO mode against
-representative synthetic data so it still launches end-to-end.
+Vibe Check's shared constants and data loaders.
 """
 
 from __future__ import annotations
@@ -17,9 +9,7 @@ import pickle
 import numpy as np
 import pandas as pd
 
-# ----------------------------------------------------------------------
-# 6 ARCHETYPES (from notebook cell 73 / cell 75)
-# ----------------------------------------------------------------------
+
 ARCHETYPES = [
     "study_focus",
     "jazz_lounge",
@@ -76,9 +66,7 @@ CLASS_COUNTS = {
 }
 TOTAL_TRACKS = sum(CLASS_COUNTS.values())  # 32,112
 
-# ----------------------------------------------------------------------
-# FEATURE SCHEMA (from notebook cell 71)
-# ----------------------------------------------------------------------
+
 AUDIO_FEATURES = [
     "danceability", "energy", "key", "loudness", "mode",
     "speechiness", "acousticness", "instrumentalness",
@@ -105,10 +93,7 @@ CATEGORICAL_FEATURES = [
 ALL_FEATURES = AUDIO_FEATURES + LYRIC_NUMERIC_FEATURES + CATEGORICAL_FEATURES
 assert len(ALL_FEATURES) == 37
 
-# ----------------------------------------------------------------------
-# SLIDER RANGES for the 14 audio features (only the audio sliders are
-# user-facing; lyric features auto-fill from archetype profiles)
-# ----------------------------------------------------------------------
+
 AUDIO_RANGES = {
     "danceability":     (0.0, 1.0, 0.55),
     "energy":           (0.0, 1.0, 0.55),
@@ -126,21 +111,7 @@ AUDIO_RANGES = {
     "year":             (1960, 2025, 2005),
 }
 
-# ----------------------------------------------------------------------
-# REAL MODEL RESULTS (notebook cells 86–138)
-#
-# The updated notebook now trains and compares SEVEN models:
-#   1. LogisticRegression baseline (cell 92)
-#   2. DecisionTree baseline (cell 94)
-#   3. DecisionTree tuned via GridSearchCV (cell 96)
-#   4. RandomForest baseline (cells 101–102)
-#   5. RandomForest tuned via Optuna/TPE, 60 trials (cell 119)
-#   6. LightGBM baseline, n_estimators=800 (cell 131)
-#   7. LightGBM tuned via Optuna/TPE, 40 trials (cell 138)  ← BEST
-#
-# All models share the same 80/20 stratified split:
-#   n_train = 25,689   n_test = 6,423   classes = 6
-# ----------------------------------------------------------------------
+
 N_TRAIN = 25_689
 N_TEST  = 6_423
 
@@ -291,12 +262,7 @@ MODELS = {
 MODEL_ORDER = ["logreg", "dtree", "dtree_tuned", "rf", "rf_tuned", "lgbm", "lgbm_tuned"]
 BEST_MODEL_KEY = "lgbm_tuned"
 
-# ----------------------------------------------------------------------
-# Headline / legacy MODEL_RESULTS — points at the best model so that
-# the rest of the dashboard (Home page hero, etc.) stays in sync.
-# Ablation + CV + per-class come from the RF run that produced the
-# saved confusion-matrix and feature-importance plots.
-# ----------------------------------------------------------------------
+
 MODEL_RESULTS = {
     "model":         MODELS[BEST_MODEL_KEY]["config"],
     "model_name":    MODELS[BEST_MODEL_KEY]["name"],
@@ -321,18 +287,7 @@ MODEL_RESULTS = {
     "per_class":     MODELS[BEST_MODEL_KEY]["per_class"],
 }
 
-# ----------------------------------------------------------------------
-# ARCHETYPE PROFILES — typical feature values per archetype.
-#
-# Audio features: drawn from well-established Spotify-feature
-# characterizations of each archetype (used as preset defaults
-# for the predictor sliders; the real per-archetype distributions
-# are visualized via the embedded notebook plots in pages/eda.py).
-#
-# Lyric features (means by archetype): EXTRACTED DIRECTLY from
-# notebook cell 67 output "Lyric Feature Summary Stats". The values
-# below are the actual means computed on the matched lyrics subset.
-# ----------------------------------------------------------------------
+
 ARCHETYPE_PROFILES = {
     "study_focus": {
         # audio (typical lo-fi / ambient / instrumental)
@@ -446,9 +401,7 @@ ARCHETYPE_PROFILES = {
     },
 }
 
-# ----------------------------------------------------------------------
-# Data loaders — try real CSV first, fall back to synthetic
-# ----------------------------------------------------------------------
+
 DATA_DIR = Path(__file__).parent / "data"
 
 @lru_cache(maxsize=1)
@@ -500,10 +453,7 @@ def _synthetic_dataframe() -> pd.DataFrame:
     df["artist_name"] = [f"Artist {(i//50) % 200}" for i in range(len(df))]
     return df
 
-# ----------------------------------------------------------------------
-# Predictor — uses pickled model if available, else trains a
-# representative RF on the synthetic dataset for the demo.
-# ----------------------------------------------------------------------
+
 @lru_cache(maxsize=1)
 def load_model():
     """Returns (model, is_real). If `data/model.pkl` exists, load it.
