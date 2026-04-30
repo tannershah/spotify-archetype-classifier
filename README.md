@@ -91,14 +91,14 @@ Lyrics were matched to tracks using a two-pass fuzzy matching strategy (via `rap
 
 - **Loudness ↔ Energy** are strongly positively correlated; **Acousticness** is strongly negatively correlated with both — consistent with physical expectations
 - **Hype rap** tracks have the highest words-per-second (lyric density), followed by heartbreak/sad
-- **Valence (audio) vs. VADER compound (lyrics)** showed moderate positive correlation across most archetypes, confirming the two feature types are complementary rather than redundant
-- **Emotion heatmap**: joy dominates summertime_party; sadness dominates heartbreak_sad; neutral dominates study_focus and jazz_lounge — validation that NLP features carry real signal
+- **Archetype similarity self-alignment**: Hype_Rap and Heartbreak_sad' lyric embeddings scored by far the highest on their own seed phrase in cosine similarity — e.g. hype_rap lyrics were most similar to the hype_rap seed, heartbreak_sad to heartbreak_sad. However, for other seeds the archetype with highest similarity was not clear. This is likely because the other classes are not represented lyrically but audiologically instead.
+- **Emotion heatmap**: Emotions clearly distinguish rap from the rest, which is expected because it is disproportionately angry. On the other hand, the other archetypes focus around fear, neutral, and sadness, which is likely just a result of the types of emotions people generally generate with lyrics. There can be sad country, summertime, or heartbreak songs.
 
 ---
 
 ## Model Results
 
-All models trained on an 80/20 stratified train/test split.
+All models trained on train/test splits.
 
 | Model | Test Accuracy | Macro F1 |
 |---|---|---|
