@@ -1,4 +1,4 @@
-"""Pipeline page — visualizes the actual end-to-end data flow."""
+"""Pipeline page"""
 
 import dash
 from dash import html
