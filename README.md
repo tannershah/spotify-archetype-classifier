@@ -10,7 +10,7 @@ Built as a final project for CIS 2450: Big Data Analytics.
 
 Most music recommendation systems treat songs as isolated data points. This project takes a different angle: **can we predict the *vibe* a song belongs to** — not just its genre — by combining what it sounds like with what it says?
 
-To answer that, we built a full end-to-end pipeline: from raw playlist data scraped across ~1M Spotify playlists, through lyric retrieval and NLP analysis, to a tuned LightGBM classifier that achieves **~70% accuracy across 6 balanced archetype classes**.
+To answer that, we built a full end-to-end pipeline: from raw playlist data scraped across ~1M Spotify playlists, through lyric retrieval and NLP analysis, to a tuned LightGBM classifier that achieves **~70% accuracy across 6 archetype classes**.
 
 ---
 
