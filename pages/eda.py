@@ -1,5 +1,4 @@
-"""EDA page — displays the actual plots produced in the project notebook,
-plus an interactive scatter for free-form exploration."""
+"""EDA page"""
 
 import dash
 from dash import html, dcc, Input, Output, callback
