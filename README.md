@@ -1,4 +1,4 @@
-# 🎵 Spotify Playlist Archetype Classifier
+#Spotify Playlist Archetype Classifier
 
 A big data ML pipeline that classifies songs into playlist "archetypes" (study focus, heartbreak/sad, summertime party, rustic nostalgia, jazz lounge, hype rap) using a combination of **Spotify audio features** and **NLP-derived lyric features**.
 
