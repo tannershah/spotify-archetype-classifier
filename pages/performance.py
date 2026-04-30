@@ -1,4 +1,4 @@
-"""Performance page — head-to-head comparison of all seven models trained
+""" H2H comparison of all seven models trained
 in the project notebook plus the deep-dive metrics for any selected model."""
 
 import dash
@@ -13,8 +13,6 @@ from utils import (
 
 dash.register_page(__name__, path="/performance", name="Performance")
 
-
-# ---------- helpers --------------------------------------------------------
 
 def _metric_card(value, label, color="#A78BFA"):
     return html.Div(className="metric-card", style={"--accent": color}, children=[
@@ -31,7 +29,6 @@ def _fmt_f1(v):
     return f"{v:.3f}" if v is not None else "—"
 
 
-# ---------- best-model headline -------------------------------------------
 
 def _headline_metrics():
     best = MODELS[BEST_MODEL_KEY]
@@ -45,7 +42,6 @@ def _headline_metrics():
     ])
 
 
-# ---------- all-models comparison -----------------------------------------
 
 def _models_comparison_chart():
     """Grouped bar of test-accuracy and test-macro-F1 across all 7 models."""
@@ -114,8 +110,6 @@ def _models_summary_table():
         ))
     return html.Table(className="report-table", children=rows)
 
-
-# ---------- per-model deep dive (driven by dropdown) ----------------------
 
 def _model_picker():
     return html.Div(className="model-picker", children=[
@@ -213,8 +207,6 @@ def _model_config_card(model_key):
     ])
 
 
-# ---------- ablation + CV (kept as-is, RF-driven) -------------------------
-
 def _ablation_chart():
     abl = MODEL_RESULTS["ablation"]
     names = list(abl.keys())
@@ -264,7 +256,6 @@ def _cv_chart():
     return fig
 
 
-# ---------- layout --------------------------------------------------------
 
 layout = html.Div(className="page-performance", children=[
     html.Section(className="page-header", children=[
