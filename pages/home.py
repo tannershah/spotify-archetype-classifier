@@ -1,4 +1,4 @@
-"""Home page — hero, headline metrics, archetype cards, project overview."""
+"""Home page"""
 
 import dash
 from dash import html, dcc
