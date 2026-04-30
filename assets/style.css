@@ -1,8 +1,4 @@
-/* ============================================================
-   VIBE CHECK — editorial/music-magazine aesthetic
-   Fraunces (display) + Geist (body) + Geist Mono (data)
-   Cream-on-warm-black with single gold accent
-   ============================================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300..900&family=Geist+Mono:wght@300..700&display=swap');
 
@@ -68,9 +64,6 @@ body::before {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 
-/* ============================================================
-   APP SHELL & NAVBAR
-   ============================================================ */
 
 .app-shell {
     min-height: 100vh;
@@ -160,9 +153,6 @@ button { font-family: inherit; cursor: pointer; }
     text-transform: uppercase;
 }
 
-/* ============================================================
-   PAGE & FOOTER
-   ============================================================ */
 
 .page {
     flex: 1;
@@ -236,9 +226,6 @@ button { font-family: inherit; cursor: pointer; }
 
 .footer-sep { color: var(--gold-deep); }
 
-/* ============================================================
-   BANNERS
-   ============================================================ */
 
 .banner {
     padding: 14px 18px;
@@ -276,9 +263,6 @@ button { font-family: inherit; cursor: pointer; }
     color: var(--gold);
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
 
 .hero {
     margin: 16px 0 64px;
@@ -343,9 +327,7 @@ button { font-family: inherit; cursor: pointer; }
     max-width: 680px;
 }
 
-/* ============================================================
-   STATS ROW
-   ============================================================ */
+
 
 .stats-row {
     display: grid;
@@ -396,9 +378,6 @@ button { font-family: inherit; cursor: pointer; }
     .stat-card:nth-child(-n+4) { border-bottom: 1px solid var(--rule); }
 }
 
-/* ============================================================
-   ARCHETYPE CARDS
-   ============================================================ */
 
 .archetype-grid {
     margin: 64px 0;
@@ -488,9 +467,6 @@ button { font-family: inherit; cursor: pointer; }
     color: var(--paper-mute);
 }
 
-/* ============================================================
-   PROJECT OVERVIEW STEPS
-   ============================================================ */
 
 .overview { margin: 80px 0; }
 
@@ -538,9 +514,7 @@ button { font-family: inherit; cursor: pointer; }
     margin: 0;
 }
 
-/* ============================================================
-   FEATURE BREAKDOWN
-   ============================================================ */
+
 
 .feature-breakdown { margin: 80px 0; }
 
@@ -598,9 +572,6 @@ button { font-family: inherit; cursor: pointer; }
 .tag-lyric { color: var(--c-rustic); border-color: rgba(217, 119, 6, 0.35); background: rgba(217, 119, 6, 0.07); }
 .tag-cat   { color: var(--c-hype);  border-color: rgba(239, 68, 68, 0.35);  background: rgba(239, 68, 68, 0.07);  }
 
-/* ============================================================
-   PIPELINE PAGE
-   ============================================================ */
 
 .pipeline-flow {
     margin: 32px 0 64px;
@@ -707,9 +678,6 @@ button { font-family: inherit; cursor: pointer; }
     margin: 0;
 }
 
-/* ============================================================
-   EDA PAGE — TABS, PLOT PANELS, SCATTER CONTROLS
-   ============================================================ */
 
 .eda-tabs { margin: 32px 0 24px; }
 
@@ -817,9 +785,6 @@ button { font-family: inherit; cursor: pointer; }
     margin-bottom: 8px;
 }
 
-/* ============================================================
-   PERFORMANCE PAGE
-   ============================================================ */
 
 .metric-grid {
     display: grid;
@@ -950,9 +915,7 @@ button { font-family: inherit; cursor: pointer; }
     margin-bottom: 6px;
 }
 
-/* ============================================================
-   PREDICTOR PAGE
-   ============================================================ */
+
 
 .preset-row {
     background: var(--bg-1);
@@ -1138,9 +1101,6 @@ button { font-family: inherit; cursor: pointer; }
     font-weight: 500;
 }
 
-/* ============================================================
-   DASH DROPDOWNS - dark theme overrides
-   ============================================================ */
 
 .Select-control,
 .Select.is-focused > .Select-control,
@@ -1187,9 +1147,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .Select-arrow { border-color: var(--paper-mute) transparent transparent !important; }
 
-/* ============================================================
-   PERFORMANCE PAGE — multi-model comparison additions
-   ============================================================ */
+
 
 .best-badge {
     display: inline-block;
@@ -1327,9 +1285,6 @@ button { font-family: inherit; cursor: pointer; }
     font-style: italic;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 
 @media (max-width: 720px) {
     .nav-inner { padding: 14px 20px; gap: 16px; flex-wrap: wrap; }
